@@ -21,7 +21,6 @@ services:
         ipv4_address: 192.168.10.11
       network20:
         ipv4_address: 192.168.20.11
-    command: ["bash", "-c", "while true; do sleep 3600; done"]
 
   docker2:
     build:

@@ -64,15 +64,15 @@ CMD ["bash", "-c", "\
     iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE && \
     iptables -A FORWARD -i eth0 -o eth1 -j ACCEPT && \
     iptables -A FORWARD -i eth1 -o eth0 -j ACCEPT && \
-    # 以下不要？？？
-    # eth0 → eth1 の TCP/UDP 転送許可
-    iptables -A FORWARD -i eth0 -o eth1 -p tcp -j ACCEPT && \
-    iptables -A FORWARD -i eth0 -o eth1 -p udp -j ACCEPT && \
-    # eth1 → eth0 の TCP/UDP 応答許可
-    iptables -A FORWARD -i eth1 -o eth0 -p tcp -j ACCEPT && \
-    iptables -A FORWARD -i eth1 -o eth0 -p udp -j ACCEPT && \
-    # eth1 に出るパケットの送信元IPアドレスを MASQUERADE（NAPT）
-    iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE && \
-    # eth0 に出るパケットの送信元IPアドレスも MASQUERADE（NAPT）
-    iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE && \
-    bash"]
+    ## 以下不要？？？
+    ## eth0 → eth1 の TCP/UDP 転送許可
+    #iptables -A FORWARD -i eth0 -o eth1 -p tcp -j ACCEPT && \
+    #iptables -A FORWARD -i eth0 -o eth1 -p udp -j ACCEPT && \
+    ## eth1 → eth0 の TCP/UDP 応答許可
+    #iptables -A FORWARD -i eth1 -o eth0 -p tcp -j ACCEPT && \
+    #iptables -A FORWARD -i eth1 -o eth0 -p udp -j ACCEPT && \
+    ## eth1 に出るパケットの送信元IPアドレスを MASQUERADE（NAPT）
+    #iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE && \
+    ## eth0 に出るパケットの送信元IPアドレスも MASQUERADE（NAPT）
+    #iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE && \
+    tail -f /dev/null"]
