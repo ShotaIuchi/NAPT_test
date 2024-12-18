@@ -7,8 +7,8 @@ services:
     privileged: true
     networks:
       network10:
-        ipv4_address: 192.168.10.10
-    command: bash -c "ip route add 192.168.20.0/24 via 192.168.10.11 && tail -f /dev/null"
+        ipv4_address: 192.168.10.9
+    command: bash -c "ip route add 192.168.20.0/24 via 192.168.10.3 && tail -f /dev/null"
 
   dockerbridge:
     build:
@@ -18,9 +18,9 @@ services:
     privileged: true
     networks:
       network10:
-        ipv4_address: 192.168.10.11
+        ipv4_address: 192.168.10.3
       network20:
-        ipv4_address: 192.168.20.11
+        ipv4_address: 192.168.20.3
 
   docker2:
     build:
@@ -30,8 +30,8 @@ services:
     privileged: true
     networks:
       network20:
-        ipv4_address: 192.168.20.10
-    command: bash -c "ip route add 192.168.10.0/24 via 192.168.20.11 && tail -f /dev/null"
+        ipv4_address: 192.168.20.9
+    command: bash -c "ip route add 192.168.10.0/24 via 192.168.20.3 && tail -f /dev/null"
 
 
 networks:
